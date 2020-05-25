@@ -79,6 +79,16 @@
             <!-- Header Meta Data -->
             <div class="header-meta d-flex clearfix justify-content-end">
                 <!-- Search Area -->
+                <?php
+                    if(Session::get('email')!="") 
+                    ?>
+                    <div style="padding: 25px">
+                        <p>{{Session::get('fullname')}}</p>
+                    </div>
+                    <?php
+                ?>
+
+
                 <div class="search-area">
                     <form action="#" method="post">
                         <input type="search" name="search" id="headerSearch" placeholder="Type for search">
@@ -90,9 +100,21 @@
                     <a href="#"><img src="img/core-img/heart.svg" alt=""></a>
                 </div>
                 <!-- User Login Info -->
-                <div class="user-login-info">
-                    <a href="/login"><img src="img/core-img/user.svg" alt=""></a>
-                </div>
+                <?php
+                    if(Session::get('email')!=""){
+                    ?>
+                    <div class="user-login-info">
+                        <a href="/logout">Log Out</a>
+                    </div>
+                    <?php
+                    }else{?>
+                    <div class="user-login-info">
+                        <a href="/login">Login</a>
+                    </div>                    
+                    <?php
+                    }
+                ?>
+
                 <!-- Cart Area -->
                 <div class="cart-area">
                     <a href="#" id="essenceCartBtn"><img src="img/core-img/bag.svg" alt=""> <span>3</span></a>

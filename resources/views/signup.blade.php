@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login</title>
+	<title>Signup</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -32,26 +32,35 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<!-- <form class="login100-form validate-form"> -->
-				{{ Form::open(array('action' => 'UserController@login')) }}
-				@csrf
+				<!-- <form class="login100-form validate-form" action="" method="POST"> -->
+				{{ Form::open(array('action' => 'UserController@signup')) }}
+				  @csrf
+				  
 					<span class="login100-form-title p-b-34">
-						Account Login
+						Sign Up
 					</span>
 					
 					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-						<input id="first-name" class="input100" type="text" name="email" placeholder="User name">
+						<input id="first-name" class="input100" type="text" name="email" placeholder="Email Address">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
 						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100"></span>
 					</div>
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type password">
+						<input class="input100" type="text" name="fullname" placeholder="Full Name">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
+						<input class="input100" type="text" name="phonenumber" placeholder="Phone Number">
+						<span class="focus-input100"></span>
+					</div>
 					
 					<div class="container-login100-form-btn">
                     <a href="/mainpage">
                         <button class="login100-form-btn" type="submit">
-							Sign in
+							Create Account
 						</button>
                         </a>
 					</div>
@@ -67,7 +76,7 @@
 					</div>
 
 					<div class="w-full text-center">
-						<a href="/signup" class="txt3">
+						<a href="#" class="txt3">
 							Sign Up
 						</a>
 					</div>

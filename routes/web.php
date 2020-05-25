@@ -35,4 +35,10 @@ Route::get('/pay', function () {
 Route::get('/login', function () {
     return view('login');
 });
+Route::get('/signup', function (){
+    return view('signup');
+});
 
+Route::post('/login', ['uses' => 'UserController@signup']);
+Route::post('/main', ['uses' => 'UserController@login']);
+Route::get('/logout', ['uses' => 'UserController@logout']);
