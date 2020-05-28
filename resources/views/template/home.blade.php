@@ -9,10 +9,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>GameZone - Gaming Shooping Center</title>
+    <title>GameZone - Gaming Shopping Center</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href=" {{ url('img/core-img/favicon.ico') }}">
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href=" /css/core-style.css">
@@ -28,7 +28,7 @@
             <!-- Classy Menu -->
             <nav class="classy-navbar" id="essenceNav">
                 <!-- Logo -->
-                <a class="nav-brand" href="/"><img style="width:74px" src="img/core-img/logo.jpg" alt=""></a>
+                <a class="nav-brand" href="/"><img style="width:74px" src="/img/core-img/logo.jpg" alt=""></a>
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -47,26 +47,16 @@
                                     <ul class="single-mega cn-col-4">
                                         <li class="title">Collection</li>
                                         <li><a href="/sport">Sport</a></li>
-                                        <li><a href="shop.html">Adventure</a></li>
-                                        <li><a href="shop.html">Horror</a></li>
-                                        <li><a href="shop.html">Strategy</a></li>
-                                        <li><a href="shop.html">simulation</a></li>
+                                        <li><a href="/adventure">Adventure</a></li>
+                                        <li><a href="/horror">Horror</a></li>
+                                        <li><a href="/strategy">Strategy</a></li>
+                                        <li><a href="/simulation">Simulation</a></li>
                                     </ul>
                                     
                                     <div class="single-mega cn-col-4">
-                                        <img src="img/bg-img/sidegame.jpg" style='width:300px !important'alt="">
+                                        <img src="/img/bg-img/sidegame.jpg" style='width:300px !important'alt="">
                                     </div>
                                 </div>
-                            </li>
-                            <li><a href="#">Equipment</a>
-                                <ul class="dropdown">
-                                    <li><a href="index.html">Mouse</a></li>
-                                    <li><a href="shop.html">Playstation Plus</a></li>
-                                    <li><a href="single-product-details.html">Gaming Chairs</a></li>
-                                    <li><a href="checkout.html">Keyboard</a></li>
-                                    <li><a href="blog.html">Joystick</a></li>
-                                    
-                                </ul>
                             </li>
                             <li><a href="/about">About Us</a></li>
                             <li><a href="/contact">Contact</a></li>
@@ -97,7 +87,7 @@
                 </div>
                 <!-- Favourite Area -->
                 <div class="favourite-area">
-                    <a href="#"><img src="img/core-img/heart.svg" alt=""></a>
+                    <a href="#"><img src="/img/core-img/heart.svg" alt=""></a>
                 </div>
                 <!-- User Login Info -->
                 <?php
@@ -117,7 +107,7 @@
 
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><img src="img/core-img/bag.svg" alt=""> <span>3</span></a>
+                    <a href="#" id="essenceCartBtn"><img src="/img/core-img/bag.svg" alt=""> <span>3</span></a>
                 </div>
             </div>
 
@@ -129,7 +119,7 @@
 
         <!-- Cart Button -->
         <div class="cart-button">
-            <a href="#" id="rightSideCart"><img src="img/core-img/bag.svg" alt=""> <span>3</span></a>
+            <a href="#" id="rightSideCart"><img src="/img/core-img/bag.svg" alt=""> <span>3</span></a>
         </div>
 
         <div class="cart-content d-flex">
@@ -139,7 +129,7 @@
                 <!-- Single Cart Item -->
                 <div class="single-cart-item">
                     <a href="#" class="product-image">
-                        <img src="img/product-img/fifa1.jfif" class="cart-thumb" alt="">
+                        <img src="/img/product-img/fifa1.jfif" class="cart-thumb" alt="">
                         <!-- Cart Item Desc -->
                         <div class="cart-item-desc">
                           <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
@@ -154,7 +144,7 @@
                 <!-- Single Cart Item -->
                 <div class="single-cart-item">
                     <a href="#" class="product-image">
-                        <img src="img/product-img/mouse.jpg" class="cart-thumb" alt="">
+                        <img src="/img/product-img/mouse.jpg" class="cart-thumb" alt="">
                         <!-- Cart Item Desc -->
                         <div class="cart-item-desc">
                           <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
@@ -168,7 +158,7 @@
                 <!-- Single Cart Item -->
                 <div class="single-cart-item">
                     <a href="#" class="product-image">
-                        <img src="img/product-img/nba.jfif" class="cart-thumb" alt="">
+                        <img src="/img/product-img/nba.jfif" class="cart-thumb" alt="">
                         <!-- Cart Item Desc -->
                         <div class="cart-item-desc">
                           <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
@@ -206,7 +196,7 @@
                     <div class="single_widget_area d-flex mb-30">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">
-                            <a href="#"><img style="width:74px"src="img/core-img/logo.jpg" alt=""></a>
+                            <a href="#"><img style="width:74px"src="/img/core-img/logo.jpg" alt=""></a>
                         </div>
                         <!-- Footer Menu -->
                         <div class="footer_menu">
@@ -274,17 +264,17 @@
     <!-- ##### Footer Area End ##### -->
 
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
+    <script src="/js/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
+    <script src="/js/plugins.js"></script>
     <!-- Classy Nav js -->
-    <script src="js/classy-nav.min.js"></script>
+    <script src="/js/classy-nav.min.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="/js/active.js"></script>
 
 </body>
 

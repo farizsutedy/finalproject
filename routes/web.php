@@ -23,9 +23,7 @@ Route::get('/mainpage', function () {
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/sport', function () {
-    return view('sport');
-});
+
 Route::get('/checkoutfifa', function () {
     return view('checkout/checkoutfifa');
 });
@@ -38,7 +36,16 @@ Route::get('/login', function () {
 Route::get('/signup', function (){
     return view('signup');
 });
+// Route::get('/sport', function (){
+//     return view('sport');
+// });
 
 Route::post('/login', ['uses' => 'UserController@signup']);
 Route::post('/main', ['uses' => 'UserController@login']);
 Route::get('/logout', ['uses' => 'UserController@logout']);
+Route::get('/sport', ['uses' => 'ProductController@getSport']);
+Route::get('/horror', ['uses' => 'ProductController@getHorror']);
+Route::get('/adventure', ['uses' => 'ProductController@getAdventure']);
+Route::get('/strategy', ['uses' => 'ProductController@getStrategy']);
+Route::get('/simulation', ['uses' => 'ProductController@getSimulation']);
+Route::get('/details/{id}', ['uses' => 'ProductController@getDetails']);
