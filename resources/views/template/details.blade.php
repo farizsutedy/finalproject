@@ -16,16 +16,7 @@
             
 
             <!-- Form -->
-            <form class="cart-form clearfix" method="post">
-                <!-- Select Box -->
-              
-                <!-- Cart & Favourite Box -->
-                <div class="cart-fav-box d-flex align-items-center">
-                    <!-- Cart -->
-                    <button style="margin-top:50px" type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
-                    <!-- Favourite -->
-                </div>
-            </form>
+
         </div>
     </section>
 @endsection

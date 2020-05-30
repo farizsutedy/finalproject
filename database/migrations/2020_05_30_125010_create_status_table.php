@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImgUrlTable extends Migration
+class CreateStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateImgUrlTable extends Migration
      */
     public function up()
     {
-        Schema::create('imgurl', function (Blueprint $table) {
-            $table->integer('imgUrlID');
-            $table->string('imgUrl');
+        Schema::create('status', function (Blueprint $table) {
+            $table->increments('statusID');
+            $table->string('status');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateImgUrlTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('img_url');
+        Schema::dropIfExists('status');
     }
 }

@@ -73,22 +73,13 @@
                     if(Session::get('email')!="") 
                     ?>
                     <div style="padding: 25px">
-                        <p>{{Session::get('fullname')}}</p>
+                        <a href="history">{{Session::get('fullname')}}</a>
                     </div>
                     <?php
                 ?>
 
-
-                <div class="search-area">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="headerSearch" placeholder="Type for search">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
-                </div>
                 <!-- Favourite Area -->
-                <div class="favourite-area">
-                    <a href="#"><img src="/img/core-img/heart.svg" alt=""></a>
-                </div>
+
                 <!-- User Login Info -->
                 <?php
                     if(Session::get('email')!=""){
@@ -107,85 +98,14 @@
 
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><img src="/img/core-img/bag.svg" alt=""> <span>3</span></a>
+                    <a href="{{ url('/checkout') }}" id="essenceCartBtn"><img src="/img/core-img/bag.svg" alt=""><span>{{Session::get('count')}}</span></a>
                 </div>
             </div>
 
         </div>
     </header>
-    <div class="cart-bg-overlay"></div>
 
-    <div class="right-side-cart-area">
 
-        <!-- Cart Button -->
-        <div class="cart-button">
-            <a href="#" id="rightSideCart"><img src="/img/core-img/bag.svg" alt=""> <span>3</span></a>
-        </div>
-
-        <div class="cart-content d-flex">
-
-            <!-- Cart List Area -->
-            <div class="cart-list">
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="/img/product-img/fifa1.jfif" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                          <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">FIFA 20</span>
-                            
-                            
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="/img/product-img/mouse.jpg" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                          <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">Mouse</span>
-                            
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="/img/product-img/nba.jfif" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                          <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">NBA 2K20</span>
-                            
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Cart Summary -->
-            <div class="cart-amount-summary">
-
-                <h2>Summary</h2>
-                <ul class="summary-table">
-                    <li><span>subtotal:</span> <span>$274.00</span></li>
-                    <li><span>delivery:</span> <span>Free</span></li>
-                    <li><span>discount:</span> <span>-15%</span></li>
-                    <li><span>total:</span> <span>$232.00</span></li>
-                </ul>
-                <div class="checkout-btn mt-100">
-                    <a href="/pay" class="btn essence-btn">check out</a>
-                </div>
-            </div>
-        </div>
-    </div>
     @yield('container')
     
     <footer class="footer_area clearfix">
@@ -202,7 +122,6 @@
                         <div class="footer_menu">
                             <ul>
                                 <li><a href="shop.html">Games</a></li>
-                                <li><a href="blog.html">Equipment</a></li>
                                 <li><a href="contact.html">About Us</a></li>
                             </ul>
                         </div>

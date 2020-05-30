@@ -18,9 +18,11 @@ class CreateProductsTable extends Migration
             $table->string('productName')->unique();
             $table->text('productDescription');
             $table->float('productPrice');
-            $table->string('imgUrl');
+            $table->integer('imgUrlID');
+            $table->string('cover');
             $table->integer('categoryID');
             $table->timestamps();
+            
         });
     }
     /**

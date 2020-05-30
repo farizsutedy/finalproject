@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gamekey extends Model
+class Bill extends Model
 {
 
     /**
@@ -13,15 +13,17 @@ class Gamekey extends Model
      * @var array
      */
     protected $fillable = [
-        'gamekey'
+        'userID', 'statusID','paymentTypeID', 'updated_at', 'created_at'
     ];
+
+    protected $primaryKey = 'billid';
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
-
+        'password', 'remember_token',
     ];
 
     /**
@@ -30,5 +32,6 @@ class Gamekey extends Model
      * @var array
      */
     protected $casts = [
+        'email_verified_at' => 'datetime',
     ];
 }

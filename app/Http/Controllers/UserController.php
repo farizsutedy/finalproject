@@ -76,12 +76,24 @@ class UserController extends Controller
                     $email = $dat->email;
                     $phonenumber = $dat->phoneNumber;
                 }
+                $cart = DB::table('bill_details')
+                    -> join('bills','bills.billID','=','bill_details.billID')
+                    ->where('bills.userID', $userID)
+                    ->where('bills.statusID',1)
+                    ->get();
+                $count = $cart->count();
+
                 Session::put('fullname',$fullname);
                 Session::put('userID',$userID);
                 Session::put('email',$email);
                 Session::put('phonenumber',$phonenumber);
-                return view('/mainpage');
+                Session::put('count',$count);
+                // dump($fullname, $cart);
+                return view('mainpage');
 
+            }
+            else{
+                return Redirect::to(URL::previous())->with('message', 'Invalid  Username and/or Password');
             }
         }
     }

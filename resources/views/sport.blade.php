@@ -67,9 +67,10 @@
                             <div class="col-12 col-sm-6 col-lg-4">
                                 <div class="single-product-wrapper">
                                     <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="img/product-img/{{$data->imgUrl}}" alt="">                                        
+                                    <div class="product-img" style="height:300px; width: 250px">
+                                        <img class="img-fluid" style="width:100%; height:100%" src="img/product-img/{{$data->cover}}" alt="">                                        
                                     </div>
+
 
                                     <!-- Product Description -->
                                     <div class="product-description">
@@ -93,8 +94,8 @@
                         </div>
                     </div>
                     <!-- Pagination -->
-                    <nav aria-label="navigation">
-                        <ul class="pagination mt-50 mb-70">
+                    <!-- <nav aria-label="navigation"> -->
+                        <!-- <ul class="pagination mt-50 mb-70">
                             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -102,8 +103,8 @@
                             <li class="page-item"><a class="page-link" href="#">...</a></li>
                             <li class="page-item"><a class="page-link" href="#">21</a></li>
                             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-                    </nav>
+                        </ul> -->
+                    <!-- </nav> -->
                 </div>
             </div>
         </div>

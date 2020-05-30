@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gamekey extends Model
+class BillDetail extends Model
 {
+
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -13,15 +15,17 @@ class Gamekey extends Model
      * @var array
      */
     protected $fillable = [
-        'gamekey'
+        'billID', 'productID','gamekey'
     ];
+
+    protected $primaryKey = 'billid';
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
-
+        'password', 'remember_token',
     ];
 
     /**
@@ -30,5 +34,6 @@ class Gamekey extends Model
      * @var array
      */
     protected $casts = [
+        'email_verified_at' => 'datetime',
     ];
 }

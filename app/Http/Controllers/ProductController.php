@@ -23,8 +23,9 @@ class ProductController extends Controller
     public function getSport()
     {
         $data = DB::table('products')
-        ->where('categoryID',1)
-            -> get();
+            ->where('categoryID',1)
+                -> get();
+
 
         return view('/sport', compact('data'));
     }

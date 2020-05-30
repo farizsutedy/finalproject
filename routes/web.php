@@ -17,9 +17,7 @@ Route::get('/', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/mainpage', function () {
-    return view('mainpage');
-});
+
 Route::get('/about', function () {
     return view('about');
 });
@@ -27,8 +25,8 @@ Route::get('/about', function () {
 Route::get('/checkoutfifa', function () {
     return view('checkout/checkoutfifa');
 });
-Route::get('/pay', function () {
-    return view('pay');
+Route::get('/checkout', function () {
+    return view('checkout');
 });
 Route::get('/login', function () {
     return view('login');
@@ -49,3 +47,7 @@ Route::get('/adventure', ['uses' => 'ProductController@getAdventure']);
 Route::get('/strategy', ['uses' => 'ProductController@getStrategy']);
 Route::get('/simulation', ['uses' => 'ProductController@getSimulation']);
 Route::get('/details/{id}', ['uses' => 'ProductController@getDetails']);
+Route::post('/addToCart/{id}', ['uses' => 'BillController@addToCart']);
+Route::get('/checkout', ['uses'=>'BillController@getCart']);
+Route::get('/history', ['uses'=>'BillController@getHistory']);
+Route::delete('deleteItem/{id}', ['uses' => 'BillController@deleteItem']);
