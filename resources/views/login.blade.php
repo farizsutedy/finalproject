@@ -56,16 +56,6 @@
                         </a>
 					</div>
 
-					<div class="w-full text-center p-t-27 p-b-239">
-						<span class="txt1">
-							Forgot
-						</span>
-
-						<a href="#" class="txt2">
-							User name / password?
-						</a>
-					</div>
-
 					<div class="w-full text-center">
 						<a href="/signup" class="txt3">
 							Sign Up

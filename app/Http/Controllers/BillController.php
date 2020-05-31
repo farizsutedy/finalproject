@@ -81,13 +81,18 @@ class BillController extends Controller
                             ->get();
             // dump($data);
             $cart = DB::table('bill_details')
-            -> join('bills','bills.billID','=','bill_details.billID')
-            ->where('bills.userID', $request->session()->get('userID'))
-            ->where('bills.statusID',1)
-            ->get();
+                -> join('bills','bills.billID','=','bill_details.billID')
+                ->where('bills.userID', $request->session()->get('userID'))
+                ->where('bills.statusID',1)
+                ->get();
+
+            $billID = DB::table('bills')
+                ->where('userID', $request->session()->get('userID'))
+                ->where('statusID',1)
+                ->get();
             $count = $cart->count();
             Session::put('count',$count);
-            return view('/checkout', compact('data'));
+            return view('/checkout', compact('data', 'billID'));
         }
     }
 
@@ -102,12 +107,13 @@ class BillController extends Controller
                             -> join('bills','bills.billID','=','bill_details.billID')
                             -> join('products','products.productID','=','bill_details.productID')
                             -> join('status','status.statusID','=','bills.statusID')
+                            ->join('paymenttype','paymenttype.paymentTypeID','=','bills.paymentTypeID')
                             // -> join('status','status.statusID','=','bills.statusID')
                             ->where('bills.userID',$request->session()->get('userID'))
                             ->where('bills.statusID', '!=', 1)
                             ->orderBy('bill_details.billdetailID','DESC')
                             ->get();
-            // dump($data);
+            dump($data);
             return view('/history', compact('data'));
         }
     }
@@ -116,6 +122,26 @@ class BillController extends Controller
     {
         $deletedUser = BillDetail::where('billDetailID', $billDetailID)->delete();
         return Redirect::to('/checkout');
+    }
+
+    public function addPayment( Request $request, $billID )
+    {
+        $paymentTypeID = $request->input('paymenttype');
+        $data = [
+            'paymentTypeID' => $paymentTypeID,
+            'statusID' => 2,
+        ];
+        Bill::where('billID', $billID)->update($data);
+        $details = DB::table('bills')
+            ->join('bill_details','bill_details.billID','=','bills.billID')
+            ->join('products','products.productID','=','bill_details.productID')
+            ->join('paymenttype','paymenttype.paymentTypeID','=','bills.paymentTypeID')
+            ->where('bills.statusID', '=', 2)
+            ->where('bills.billID', '=', $billID)
+            ->get();
+
+        dump($details);
+        return view('pay', compact('details'));
     }
 
 }

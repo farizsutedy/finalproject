@@ -37,8 +37,23 @@ Route::get('/signup', function (){
 // Route::get('/sport', function (){
 //     return view('sport');
 // });
+Route::get('/admin', function () {
+    return view('admin');
+});
+Route::get('/pay',function(){
+    return view('pay');
+});
 
+Route::get('/adminhome',function(){
+    return view('adminhome');
+});
+
+Route::post('/adminhome', ['uses' => 'AdminController@login']);
 Route::post('/login', ['uses' => 'UserController@signup']);
+Route::get('/adminlogout', ['uses' => 'AdminController@logout']);
+Route::get('/orders', ['uses' => 'AdminController@getOrders']);
+Route::get('/orderdetails/{id}', ['uses' => 'AdminController@getDetails']);
+Route::patch('/confirmorder/{id}', ['uses' => 'AdminController@confirmOrder']);
 Route::post('/main', ['uses' => 'UserController@login']);
 Route::get('/logout', ['uses' => 'UserController@logout']);
 Route::get('/sport', ['uses' => 'ProductController@getSport']);
@@ -51,3 +66,5 @@ Route::post('/addToCart/{id}', ['uses' => 'BillController@addToCart']);
 Route::get('/checkout', ['uses'=>'BillController@getCart']);
 Route::get('/history', ['uses'=>'BillController@getHistory']);
 Route::delete('deleteItem/{id}', ['uses' => 'BillController@deleteItem']);
+Route::patch('payItem/{id}', ['uses' => 'BillController@addPayment']);
+Route::get('/test', ['uses' => 'GamekeyController@generateKey']);

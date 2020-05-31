@@ -26,13 +26,13 @@
                                 $currentbillid = $data->billID;
                             ?>
                             <li><img src="/img/product-img/{{$data->cover}}" style="text-align:left; max-height:100px"alt=""><span>{{$data->productName}}</span> <span>${{$data->productPrice}}</span><span><form action="deleteItem/{{$data->billDetailID}}" method="post">
-            @method('delete')
-            @csrf
-              <button class="btn btn-danger">Delete</button>
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-danger">Delete</button>
 
-            </form></span></li>                            
-					        @endforeach
+                            </form></span></li>                            
 
+					    @endforeach
                             <li><span>Total</span> <span>${{$totalprice}}</span></li>
                         </ul>
 
@@ -42,12 +42,15 @@
                         if(Session::get('count'))
                         {
                             ?>
-                            <form action="radio">
+                            @foreach($billID as $data)
+                            <form method="post" action="payItem/{{$data->billID}}">
+                                @method('patch')
+                                @csrf
                                 <div id="accordion" role="tablist" class="mb-4">
                                     <div class="card">
                                         <div class="card-header" role="tab" id="headingOne">
                                             <h6 class="mb-0">
-                                                <input style="margin:15px"type="radio" id="Gopay" name="paymenttype" value="Gopay">Gopay
+                                                <input style="margin:15px"type="radio" id="Gopay" name="paymenttype" value="1">Gopay
                                             </h6>
                                         </div>
 
@@ -56,13 +59,14 @@
                                     <div class="card">
                                     <div class="card-header" role="tab" id="headingTwo">
                                         <h6 class="mb-0">
-                                        <input style="margin:15px"type="radio" id="OVO" name="paymenttype" value="OVO">OVO
+                                        <input style="margin:15px"type="radio" id="OVO" name="paymenttype" value="2">OVO
                                         </h6>
                                     </div>
                                     
                                 </div>                       
                             </form>                            
-                            <a href="#" class="btn essence-btn">Place Order</a>
+                            <button type="submit" name="addpayment" class="btn essence-btn">Place Order</a>
+                            @endforeach
                             <?php                            
                         }
                         ?>

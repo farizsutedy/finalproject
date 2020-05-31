@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGamekeysTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateGamekeysTable extends Migration
      */
     public function up()
     {
-        Schema::create('gamekeys', function (Blueprint $table) {
-            $table->increments('gamekeyID');
-            $table->string('gamekey');
+        Schema::create('admins', function (Blueprint $table) {
+            $table->increments('adminID');
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->string('api_token');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +29,6 @@ class CreateGamekeysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gamekeys');
+        Schema::dropIfExists('admins');
     }
 }

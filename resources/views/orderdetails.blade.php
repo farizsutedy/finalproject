@@ -1,4 +1,4 @@
-@extends('template/home')
+@extends('template/admintemplate')
 @section('container')
 
 <div class="checkout_area">
@@ -9,7 +9,7 @@
                     <div class="order-details-confirmation" style="margin:30px">
 
                         <div class="cart-page-heading">
-                            <h5>Your Purchase History</h5>
+                            <a href="/orders"><h5>Back</h5></a>
                         </div>
 
       
@@ -20,8 +20,6 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Payment Type</th>
-                                    <th scope="col">Gamekey</th>
-                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,36 +29,13 @@
                                     <td>{{$data->productName}}</td>
                                     <td>${{$data->productPrice}}</td>
                                     <td style="text-align:center"><img src="/img/core-img/{{$data->paymentType}}.png" style="text-align:right; max-height:100px; max-width:150px"alt=""></td>
-                                    <?php
-                                    if($data->gamekey == '')
-                                    {
-                                    ?>
-                                    <td>Waiting Confirmation</td>
-                                    <?php
-                                    }
-                                    else
-                                    {
-                                        ?>
-                                        <td>
-                                        <div class="panel panel-success autocollapse">
-                                            <div class="panel-heading clickable">
-                                                <h3 class="panel-title">
-                                                    Click to view Gamekey
-                                                </h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="alert alert-success" role="alert">{{$data->gamekey}}</div>
-                                            </div>
-                                        </div>    
-                                        </td>   
-                                                       
-                                        <?php
-                                    }
-                                    ?>
-                                    <td>{{$data->status}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
+                            <tr>
+                                <th>Total</th>
+                                <td></td>
+                            </tr>
                         </table>                        
                     </div>
                 </div>
