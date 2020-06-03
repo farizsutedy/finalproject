@@ -52,6 +52,7 @@ Route::post('/adminhome', ['uses' => 'AdminController@login']);
 Route::post('/login', ['uses' => 'UserController@signup']);
 Route::get('/adminlogout', ['uses' => 'AdminController@logout']);
 Route::get('/orders', ['uses' => 'AdminController@getOrders']);
+Route::get('/ordershistory', ['uses' => 'AdminController@getOrdersHistory']);
 Route::get('/orderdetails/{id}', ['uses' => 'AdminController@getDetails']);
 Route::patch('/confirmorder/{id}', ['uses' => 'AdminController@confirmOrder']);
 Route::post('/main', ['uses' => 'UserController@login']);

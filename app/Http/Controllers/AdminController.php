@@ -122,6 +122,18 @@ class AdminController extends Controller
         dump($data);
         return view('/orders', compact('data'));
     }
+    public function getOrdersHistory()
+    {
+        $data = DB::table('bills')
+                        ->join('status','status.statusID','=','bills.statusID')
+                        ->join('users',"users.userID",'=','bills.userID')
+                        // -> join('status','status.statusID','=','bills.statusID')
+                        ->where('bills.statusID', '=', 3)
+                        ->orderBy('bills.billID','DESC')
+                        ->get();
+        dump($data);
+        return view('/ordershistory', compact('data'));
+    }
 
     public function getDetails( $billID )
     {

@@ -8,10 +8,6 @@
                 <div class="col-12 col-md-12 col-lg-12 ml-lg-auto">
                     <div class="order-details-confirmation" style="margin:30px">
 
-                        <div class="cart-page-heading">
-                            <a href="/orders"><h5>Back</h5></a>
-                        </div>
-
       
                         <table class="table table-bordered">
                             <thead>
@@ -23,7 +19,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                $totalprice = 0
+                                ?>
                             @foreach($data as $data)
+     
+                                    
+                                <?php
+                                    $subt = $data->productPrice;
+                                    $totalprice += $subt;
+                                ?>
                                 <tr>
                                     <td style="text-align:center"><img src="/img/product-img/{{$data->cover}}" style="text-align:right; max-height:100px"alt=""></td>
                                     <td>{{$data->productName}}</td>
@@ -34,7 +39,7 @@
                             </tbody>
                             <tr>
                                 <th>Total</th>
-                                <td></td>
+                                <td>{{$totalprice}}</td>
                             </tr>
                         </table>                        
                     </div>

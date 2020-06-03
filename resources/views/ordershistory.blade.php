@@ -21,21 +21,15 @@
                                     <th scope="col">User Name</th>
                                     <th scope="col">User Email</th>
                                     <th scope="col">Payment Status</th>
-                                    <th scope="col">Confirm Purchase</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @foreach($data as $data)
                                 <tr>
-                                    <td style="text-align:center"><a href="/orderdetails/{{$data->billID}}" target='_blank'>{{$data->billID}}</a></td>
+                                    <td style="text-align:center"><a href="/orderdetails/{{$data->billID}}" target="_blank">{{$data->billID}}</a></td>
                                     <td>{{$data->fullName}}</td>
                                     <td>{{$data->email}}</td>
                                     <td>{{$data->status}}</td>
-                                    <form method="post" action="confirmorder/{{$data->billID}}">
-                                    @method('patch')
-                                    @csrf
-                                    <td style="text-align:center"><button type="submit" class="btn btn-success">Confirm</button></td>
-                                    </form>
                                 </tr>
                             @endforeach
                             </tbody>
